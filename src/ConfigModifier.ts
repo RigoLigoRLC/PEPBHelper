@@ -65,7 +65,7 @@ function writePepbCMakeKits(path: string): Boolean {
     let getSuitableKit = () => {
         let ret: CMakeKits = {
             name: 'ARM GCC TarsGo-PEPB',
-            toolchainFile: path + '/embedded-toolchain.json',
+            toolchainFile: path + '/embedded-toolchain.cmake',
             compilers: {
                 C: config.armGnuToolchainBin + '/arm-none-eabi-gcc' + executableExtension,
                 CXX: config.armGnuToolchainBin + '/arm-none-eabi-g++' + executableExtension
@@ -189,17 +189,6 @@ function writePepbSettings(path: string): Boolean {
     let text: string;
     let pepbSettings: any;
     const filePath: string = path + '/.vscode/PEPBSettings.json';
-    let getSuitableKit = () => {
-        let ret: CMakeKits = {
-            name: 'ARM GCC TarsGo-PEPB',
-            toolchainFile: path + '/embedded-toolchain.cmake',
-            compilers: {
-                C: config.armGnuToolchainBin + '/arm-none-eabi-gcc' + executableExtension,
-                CXX: config.armGnuToolchainBin + '/arm-none-eabi-g++' + executableExtension
-            }
-        };
-        return ret;
-    };
 
     try {
         ensureDirectoryExists(path);
