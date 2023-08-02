@@ -10,5 +10,6 @@
     "Cannot write back to {0}, PEPB settings is probably corrupt, please check manually!": "无法写回至 {0} ，PEPB 配置可能受损，请手动检查！",
     "Settings of this extension is not complete, please retry after revising configuration!": "本扩展的设置不完整，请检查插件设置后重试！",
     "Successfully updated PEPB paths for project \"{0}\"!": "已成功为项目“{0}”配置路径！",
-    "PEPB Helper does not support workspaces with multiple roots!": "PEPB Helper 不支持含有多个根目录的工作区！"
+    "PEPB Helper does not support workspaces with multiple roots!": "PEPB Helper 不支持含有多个根目录的工作区！",
+    "PEPB Helper require a workspace to function!": "PEPB Helper 需要在工作区内才能使用！"
 }
