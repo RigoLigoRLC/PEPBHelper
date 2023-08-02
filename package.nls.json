@@ -1,0 +1,6 @@
+{
+    "pepb.configure_project": "PEPB: Configure for this project",
+
+    "pepb-helper.conf_desc.arm_gnu_toolchain_bin": "Specify the bin directory of the ARM GNU Toolchain you would like to use with PEPB's build system.",
+    "pepb-helper.conf_desc.openOcdBin": "Specify the bin directory of the OpenOCD you would be using to flash the device."
+}

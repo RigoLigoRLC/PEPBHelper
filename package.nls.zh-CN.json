@@ -1,0 +1,6 @@
+{
+    "pepb.configure_project": "PEPB: 为此项目设置配置",
+
+    "pepb-helper.conf_desc.arm_gnu_toolchain_bin": "指定你要用于 PEPB 构建系统的 ARM GNU 工具链的 bin 目录。",
+    "pepb-helper.conf_desc.openOcdBin": "指定你要用于烧录程序的 OpenOCD 的 bin 目录。"
+}
