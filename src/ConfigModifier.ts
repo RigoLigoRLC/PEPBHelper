@@ -222,7 +222,7 @@ function writePepbSettings(path: string): Boolean {
 
         // Don't care about robustness, edit it directly,
         // crash with any illegal input
-        pepbSettings['OpenOcd']['Path'] = config.openOcdBin + '/openocd' + executableExtension;
+        pepbSettings['OpenOcd']['Path'] = config.openOcdBin;
     } catch (err) {
         vscode.window.showErrorMessage(
             vscode.l10n.t('Cannot parse {0}, PEPB settings is not modified!', [filePath])
@@ -244,6 +244,8 @@ function writePepbSettings(path: string): Boolean {
 
 export function modifyForWorkspace(path: string) {
     path = path.replace(/\\/g, '/');
+
+    // if (!fs.existsSync(path + '/.vscode/PEPB'))
 
     if (!checkExtensionConfiguration()) {
         vscode.window.showErrorMessage(
