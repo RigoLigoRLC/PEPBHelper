@@ -192,7 +192,7 @@ function writePepbSettings(path: string): Boolean {
     let getSuitableKit = () => {
         let ret: CMakeKits = {
             name: 'ARM GCC TarsGo-PEPB',
-            toolchainFile: path + '/embedded-toolchain.json',
+            toolchainFile: path + '/embedded-toolchain.cmake',
             compilers: {
                 C: config.armGnuToolchainBin + '/arm-none-eabi-gcc' + executableExtension,
                 CXX: config.armGnuToolchainBin + '/arm-none-eabi-g++' + executableExtension
