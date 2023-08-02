@@ -3,6 +3,9 @@
   "displayName": "PEPB Helper",
   "description": "Use with PEPB projects to automatically set PEPB configurations",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/RigoLigoRLC/PEPBHelper"
+  },
   "engines": {
     "vscode": "^1.73.0"
   },
