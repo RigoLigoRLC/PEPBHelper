@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/naming-convention */ // Fuck you linters, bye bye
 
 import * as fs from 'fs';
 import * as vscode from 'vscode';
@@ -9,6 +9,9 @@ interface CMakeKits {
     compilers: {
         C: string;
         CXX: string;
+    },
+    environmentVariables: {
+        PATH: string;
     }
 }
 
@@ -64,11 +67,14 @@ function writePepbCMakeKits(path: string): Boolean {
     const filePath: string = path + '/.vscode/cmake-kits.json';
     let getSuitableKit = () => {
         let ret: CMakeKits = {
-            name: 'ARM GCC TarsGo-PEPB',
+            name: 'ARM GCC (PEPB)',
             toolchainFile: path + '/embedded-toolchain.cmake',
             compilers: {
                 C: config.armGnuToolchainBin + '/arm-none-eabi-gcc' + executableExtension,
                 CXX: config.armGnuToolchainBin + '/arm-none-eabi-g++' + executableExtension
+            },
+            environmentVariables: {
+                PATH: config.armGnuToolchainBin + ':${env.PATH}'
             }
         };
         return ret;
@@ -95,10 +101,9 @@ function writePepbCMakeKits(path: string): Boolean {
 
         for (let i = 0; i < cmakeKits.length; i++) {
             let ii: CMakeKits = cmakeKits[i];
-            if (ii.name === 'ARM GCC TarsGo-PEPB') {
+            if (!found && (ii.name === 'ARM GCC (PEPB)' || ii.name === 'ARM GCC TarsGo-PEPB')) {
                 cmakeKits[i] = getSuitableKit();
                 found = true;
-                break;
             }
         }
 
@@ -128,7 +133,7 @@ function writeVscodeWorkspaceSettings(path: string): Boolean {
     let text: string;
     let settings: any;
     const filePath: string = path + '/.vscode/settings.json';
-    const clangdQueryDriver = `--query-driver=${config.armGnuToolchainBin}/arm-none-eabi-*.exe`;
+    const clangdQueryDriver = `--query-driver=${config.armGnuToolchainBin}/arm-none-eabi-*${executableExtension}`;
 
     try {
         ensureDirectoryExists(path);
